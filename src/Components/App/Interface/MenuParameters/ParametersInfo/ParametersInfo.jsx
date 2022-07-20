@@ -39,7 +39,9 @@ function ParametersInfo(props) {
                     <div className='bar__button' onClick={deletePoints}>
                         <a href="#">-</a>
                     </div>
-                    <div className='bar'></div>
+                    <div className='bar'>
+                        <span style={{ width: `${item.point * 10}%` }}></span>
+                    </div>
                     <div className='bar__button' onClick={addPoints}>
                         <a href="#">+</a>
                     </div>

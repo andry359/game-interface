@@ -51,7 +51,6 @@ function ModalСharacterCreation() {
             <div className='main__content main-content'>
                 <form className='main-content__form form' onSubmit={(e) => {
                     addInitialData(name, radioValue);
-                    // e.stopPropagation();
                 }}>
                     <div className='form__conteiner'>
                         <div className='form__name'>
@@ -79,7 +78,7 @@ function ModalСharacterCreation() {
                             </div>
                         </div>
                         <div className='main-content__button'>
-                            <Link to="/optionsMenu">
+                            <Link to="/Interface/*">
                                 <button disabled={!formValid} type='submit'>
                                     Продолжить
                                 </button>

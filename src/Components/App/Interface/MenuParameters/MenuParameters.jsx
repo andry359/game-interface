@@ -1,24 +1,25 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import './OptionsMenu.scss';
-import { ReactComponent as Male } from './icons/male.svg';
-import { ReactComponent as Woman } from './icons/woman.svg';
-import { ReactComponent as Arrow } from './icons/arrow.svg';
+import './MenuParameters.scss';
+import { ReactComponent as Male } from '../icons/male.svg';
+import { ReactComponent as Woman } from '../icons/woman.svg';
+import { ReactComponent as Arrow } from '../icons/arrow.svg';
 import ParametersInfo from './ParametersInfo/ParametersInfo';
 import MinorParametersInfo from './MinorParametersInfo/MinorParametersInfo';
 import NameCharacter from './NameCharacter/NameCharacter';
+import { Link } from 'react-router-dom';
 
-function OptionsMenu() {
+function MenuParameters() {
 
     const objectInfo = useSelector(state => state);
-
-    const [basePoints, setBasePoints] = useState(objectInfo.name.character.points);
+    const pointsInfo = useSelector(state => state);
+    const [basePoints, setBasePoints] = useState(pointsInfo.name.character.points);
     const deleteBasePoints = () => {
-        setBasePoints(basePoints - 1)
+        setBasePoints(basePoints - 1);
     }
     const addBasePoints = () => {
-        setBasePoints(basePoints + 1)
+        setBasePoints(basePoints + 1);
     }
 
     return (
@@ -51,9 +52,11 @@ function OptionsMenu() {
                 <MinorParametersInfo />
             </div>
             <div className='forward'>
-                <Arrow className="arrow" width='30' height='30' />
+                <Link to='MenuSkills'>
+                    <Arrow className="arrow" width='30' height='30' />
+                </Link>
             </div>
         </div>
     )
 };
-export default OptionsMenu;
+export default MenuParameters;

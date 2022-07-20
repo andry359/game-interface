@@ -11,7 +11,7 @@ function ModalGreetings() {
                     <p>Приветствую тебя путник! Кажется настал час создать своего героя</p>
                 </div>
                 <div className='main-content__button'>
-                    <Link to='/characterCreation'>
+                    <Link to='characterCreation'>
                         <button type='submit'>
                             Создать персонажа
                         </button>
