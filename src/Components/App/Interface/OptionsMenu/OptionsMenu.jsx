@@ -1,5 +1,6 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './OptionsMenu.scss';
 import { ReactComponent as Male } from './icons/male.svg';
 import { ReactComponent as Woman } from './icons/woman.svg';
@@ -8,11 +9,17 @@ import ParametersInfo from './ParametersInfo/ParametersInfo';
 import MinorParametersInfo from './MinorParametersInfo/MinorParametersInfo';
 import NameCharacter from './NameCharacter/NameCharacter';
 
-
 function OptionsMenu() {
 
-    const dispatch = useDispatch();
     const objectInfo = useSelector(state => state);
+
+    const [basePoints, setBasePoints] = useState(objectInfo.name.character.points);
+    const deleteBasePoints = () => {
+        setBasePoints(basePoints - 1)
+    }
+    const addBasePoints = () => {
+        setBasePoints(basePoints + 1)
+    }
 
     return (
         <div className="optionsMenu">
@@ -27,13 +34,13 @@ function OptionsMenu() {
                 <div className='optionsMenu__options options'>
                     <div className='options__statPoints'>
                         <span>
-                            {objectInfo.name.character.points}
+                            {basePoints}
                         </span>
                     </div>
                     <div className='options__basicParameters'>
                         <h3 className='title'>Базовые параметры:</h3>
                         <div className="parameters">
-                            <ParametersInfo />
+                            <ParametersInfo basePoints={basePoints} deleteBasePoints={deleteBasePoints} addBasePoints={addBasePoints} />
                         </div>
                     </div>
                 </div>

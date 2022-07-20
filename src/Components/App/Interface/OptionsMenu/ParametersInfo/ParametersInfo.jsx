@@ -1,18 +1,30 @@
 import './ParametersInfo.scss';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
-function ParametersInfo() {
+function ParametersInfo(props) {
 
-    const dispatch = useDispatch();
     const objectInfo = useSelector(state => state);
-    const arrayParameters = objectInfo.name.character.basicParameters;
-    console.log(arrayParameters);
+    const arrayBasicParameters = objectInfo.points.character.basicParameters;
+    const [points, setPoints] = useState(arrayBasicParameters);
 
-    // const addStrrength = () => {
+    const parameters = arrayBasicParameters.map((item) => {
 
-    // }
+        function addPoints() {
+            if (item.point < 10) {
+                if (props.basePoints > 0) {
+                    setPoints(item.point++);
+                    props.deleteBasePoints();
+                }
+            }
+        }
+        function deletePoints() {
+            if (item.point > 0) {
+                setPoints(item.point--);
+                props.addBasePoints();
+            }
+        }
 
-    const parameters = arrayParameters.map((item) => {
         return (
             <div className="parameters__content" key={item.id}>
                 <div className="block__info">
@@ -24,15 +36,15 @@ function ParametersInfo() {
                     </span>
                 </div>
                 <div className="block__bar bar">
-                    <div className='bar__button'>
+                    <div className='bar__button' onClick={deletePoints}>
                         <a href="#">-</a>
                     </div>
                     <div className='bar'></div>
-                    <div className='bar__button'>
+                    <div className='bar__button' onClick={addPoints}>
                         <a href="#">+</a>
                     </div>
                 </div>
-            </div>
+            </div >
         )
     });
 

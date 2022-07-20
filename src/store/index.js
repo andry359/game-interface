@@ -2,6 +2,7 @@ import { createStore, combineReducers } from 'redux';
 import { nameReducer } from './nameReducer';
 import { genderReducer } from './genderReduser';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { pointsReducer } from './pointsReducer';
 
 export const defaultState = {
     name: '',
@@ -25,5 +26,6 @@ export const defaultState = {
 const rootReducer = combineReducers({
     name: nameReducer,
     gender: genderReducer,
+    points: pointsReducer,
 });
 export const store = createStore(rootReducer, composeWithDevTools());

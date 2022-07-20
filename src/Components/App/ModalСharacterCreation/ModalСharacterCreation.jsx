@@ -1,6 +1,5 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './ModalСharacterCreation.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -40,10 +39,8 @@ function ModalСharacterCreation() {
     }
 
     const dispatch = useDispatch();
-    const nameCharacter = useSelector(state => state.name.name = name);
-    const genderCharacter = useSelector(state => state.gender.gender = radioValue);
-    console.log(nameCharacter);
-    console.log(genderCharacter);
+    useSelector(state => state.name.name = name);
+    useSelector(state => state.gender.gender = radioValue);
     const addInitialData = (name, radioValue) => {
         dispatch({ type: 'ADD_NAME', name: name });
         dispatch({ type: 'ADD_GENDER', gender: radioValue })
@@ -51,10 +48,10 @@ function ModalСharacterCreation() {
 
     return (
         <div className="modal">
-            <div className='main__content main-content' onClick={e => e.stopPropagation()}>
+            <div className='main__content main-content'>
                 <form className='main-content__form form' onSubmit={(e) => {
                     addInitialData(name, radioValue);
-                    e.stopPropagation();
+                    // e.stopPropagation();
                 }}>
                     <div className='form__conteiner'>
                         <div className='form__name'>
