@@ -1,6 +1,6 @@
 import React from 'react';
 import './Interface.scss';
-import { Routes, Route, Outlet } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import MenuParameters from './MenuParameters/MenuParameters';
 import MenuSkills from './MenuSkills/MenuSkills';
 
