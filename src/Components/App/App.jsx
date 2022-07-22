@@ -2,7 +2,7 @@ import './App.scss';
 import ModalGreetings from './ModalGreetings/ModalGreetings';
 import ModalСharacterCreation from './ModalСharacterCreation/ModalСharacterCreation';
 import Interface from './Interface/Interface';
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Header from './Header/Header';
 
 function App() {

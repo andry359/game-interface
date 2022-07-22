@@ -6,7 +6,7 @@ function MinorParametersInfo() {
     const objectInfo = useSelector(state => state);
     const arrayMinorParameters = objectInfo.points.character.minorParameters;
     const arrayBasicParameters = objectInfo.points.character.basicParameters;
-    // Могучий костыль
+
     function getMinorParameters(basicParameters, minorPoints) {
         const resultMinorParameters = [
             { id: 1, parameters: 'Жизненная сила', point: minorPoints[0] + basicParameters[0].point },

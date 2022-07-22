@@ -5,6 +5,20 @@
     display: flex;
     flex-direction: column;
     justify-content: end;
+    .skills__title {
+        width: 100%;
+        height: 25px;
+    }
+    .skills__content {
+        width: 100%;
+        height: 100%;
+        margin: 15px 0px;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            width: 0px;
+            background: transparent; 
+        }
+    }
     .forward {
         width: 100%;
         height: 30px;

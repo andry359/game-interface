@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './MenuParameters.scss';
 import { ReactComponent as Male } from '../icons/male.svg';
 import { ReactComponent as Woman } from '../icons/woman.svg';
@@ -12,19 +12,22 @@ import { Link } from 'react-router-dom';
 
 function MenuParameters() {
 
+    const dispatch = useDispatch();
     const objectInfo = useSelector(state => state);
-    const pointsInfo = useSelector(state => state);
-    const [basePoints, setBasePoints] = useState(pointsInfo.name.character.points);
+    const pointsInfo = useSelector(state => state.points.character.points);
+    const [basePoints, setBasePoints] = useState(pointsInfo);
+
     const deleteBasePoints = () => {
         setBasePoints(basePoints - 1);
+        dispatch({ type: 'ADD_POINTS', points: basePoints - 1 });
     }
     const addBasePoints = () => {
         setBasePoints(basePoints + 1);
+        dispatch({ type: 'ADD_POINTS', points: basePoints + 1 });
     }
 
     return (
         <div className="optionsMenu">
-
             <NameCharacter name={objectInfo.name.name} />
             <div className="mainParameters">
                 <div className='optionsMenu__character character'>
