@@ -14,8 +14,8 @@ function MenuParameters() {
 
     const dispatch = useDispatch();
     const objectInfo = useSelector(state => state);
-    const pointsInfo = useSelector(state => state.points.character.points);
-    const [basePoints, setBasePoints] = useState(pointsInfo);
+    const pointsInfo = !!(objectInfo.points.name && objectInfo.points?.gender) ? objectInfo.points : JSON.parse(localStorage.getItem('characterInfo'));
+    const [basePoints, setBasePoints] = useState(pointsInfo.character.points);
 
     const deleteBasePoints = () => {
         setBasePoints(basePoints - 1);
@@ -28,10 +28,10 @@ function MenuParameters() {
 
     return (
         <div className="optionsMenu">
-            <NameCharacter name={objectInfo.name.name} />
+            <NameCharacter name={pointsInfo.name} />
             <div className="mainParameters">
                 <div className='optionsMenu__character character'>
-                    {objectInfo.name.gender === 'man' ?
+                    {pointsInfo.gender === 'man' ?
                         <Male width='300' height='410' /> :
                         <Woman width='300' height='410' />}
                 </div>

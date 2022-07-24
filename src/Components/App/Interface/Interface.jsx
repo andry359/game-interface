@@ -6,6 +6,8 @@ import MenuSkills from './MenuSkills/MenuSkills';
 
 function Interface() {
 
+    // const objectInfo = JSON.parse(localStorage.getItem('characterInfo'));
+    // console.log(objectInfo);
     return (
         <div className="interface">
             <Routes>

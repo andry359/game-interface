@@ -4,8 +4,8 @@ import { useState } from 'react';
 
 function ParametersInfo(props) {
 
-    const objectInfo = useSelector(state => state);
-    const arrayBasicParameters = objectInfo.points.character.basicParameters;
+    const objectInfo = useSelector(state => state.points);
+    const arrayBasicParameters = objectInfo.character.basicParameters;
     const [points, setPoints] = useState(arrayBasicParameters);
 
     const parameters = arrayBasicParameters.map((item) => {

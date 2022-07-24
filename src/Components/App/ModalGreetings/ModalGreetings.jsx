@@ -1,23 +1,15 @@
 import React from 'react';
 import './ModalGreetings.scss';
-import { Link } from 'react-router-dom';
+import NewCharacter from './NewCharacter/NewCharacter';
+import ChooseCharacter from './ChooseCharacter/ChooseCharacter';
 
 function ModalGreetings() {
 
+    const isCharacter = !!localStorage.getItem('characterInfo');
+
     return (
         <div className="modal">
-            <div className='main__content main-content'>
-                <div className='main-content__text'>
-                    <p>Приветствую тебя путник! Кажется настал час создать своего героя</p>
-                </div>
-                <div className='main-content__button'>
-                    <Link to='characterCreation'>
-                        <button type='submit'>
-                            Создать персонажа
-                        </button>
-                    </Link>
-                </div>
-            </div>
+            {isCharacter ? <ChooseCharacter /> : <NewCharacter />}
         </div>
     )
 };

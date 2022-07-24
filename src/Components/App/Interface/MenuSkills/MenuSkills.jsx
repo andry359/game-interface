@@ -1,11 +1,15 @@
 import React from 'react';
+import { useState } from 'react';
 import './MenuSkills.scss';
 import { ReactComponent as Arrow } from '../icons/arrow.svg';
-import { Link } from 'react-router-dom';
 import SkillComponent from './SkillComponent/SkillComponent';
 import SkillsTitle from './SkillsTitle/SkillsTitle';
+import ModalSave from './ModalSave/ModalSave';
 
 function MenuSkills() {
+
+    const [modalSaveActive, setModalSaveActive] = useState(false);
+
     return (
         <div className="optionsSkills skills">
 
@@ -15,11 +19,10 @@ function MenuSkills() {
             <div className='skills__content'>
                 <SkillComponent />
             </div>
-            <div className='forward'>
-                <Link to='/Interface/*'>
-                    <Arrow className="arrow" width='30' height='30' />
-                </Link>
+            <div className='forward' onClick={() => setModalSaveActive(true)}>
+                <Arrow className="arrow" width='30' height='30' />
             </div>
+            <ModalSave active={modalSaveActive} setActive={setModalSaveActive} />
         </div>
     )
 };

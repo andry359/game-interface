@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 
 function MinorParametersInfo() {
 
-    const objectInfo = useSelector(state => state);
-    const arrayMinorParameters = objectInfo.points.character.minorParameters;
-    const arrayBasicParameters = objectInfo.points.character.basicParameters;
+    const objectInfo = useSelector(state => state.points);
+    const arrayMinorParameters = objectInfo.character.minorParameters;
+    const arrayBasicParameters = objectInfo.character.basicParameters;
 
     function getMinorParameters(basicParameters, minorPoints) {
         const resultMinorParameters = [
